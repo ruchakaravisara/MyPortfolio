@@ -1,0 +1,59 @@
+*{
+    background-color:#CCB8AD;
+    color: black;
+
+}
+
+header{
+    display: flex;
+    background-color: black;
+    align-items: center;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+
+}
+
+nav {
+    position: absolute;
+    right: 10vw;
+}
+menu{
+    color: black;
+}
+header>nav>menu{
+    background: black;
+    padding: 6px 20px;
+}
+header>nav>menu>a{
+    color: white;
+}
+menu a{
+    color: black;
+    text-decoration: none;
+    margin-left: 20px;
+}
+#\#abo{
+    margin-left: 550px;
+}
+main>section>h1{
+    color: white;
+
+}
+#\#abo2{
+    margin-left: 30px;
+
+}
+#home{
+    margin-left: 30px;
+}
+#educate{
+    margin-left: 30px;
+}
+#proj{
+    margin-left: 30px;
+}
+#contactMe{
+    margin-left: 30px;
+}
+

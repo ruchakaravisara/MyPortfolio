@@ -11,6 +11,7 @@ header{
     padding: 15px 20px;
     position: sticky;
     top: 0;
+    z-index: 1;
 
 }
 main{
@@ -107,7 +108,7 @@ section:nth-child(3)>p{
 #myphoto{
     border-radius: 150px;
     position: absolute;
-    top: 292px;
+    top: 230px;
     left: 100px;
     width: 23.5%;
    /* display: block;

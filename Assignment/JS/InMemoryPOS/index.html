@@ -22,16 +22,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="/Assignment/CssFrameworks/pos/ManageCustomer.html" id="Mcustomer">Customer</a>
+                        <a class="nav-link text-white" aria-current="page" href="#customer" id="Mcustomer">Customer</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="/Assignment/CssFrameworks/pos/ManageStore.html" id="MStore">Items</a>
+                        <a class="nav-link text-white" aria-current="page" href="#store" id="MStore">Items</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="/Assignment/CssFrameworks/pos/ManageOrder.html" id="MOrder">Orders</a>
+                        <a class="nav-link text-white" aria-current="page" href="#order" id="MOrder">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="/Assignment/CssFrameworks/pos/PlaceOrder.html" id="MPlaceOrder">Place Order</a>
+                        <a class="nav-link text-white" aria-current="page" href="#placeOrder" id="MPlaceOrder">Place Order</a>
                     </li>
 
                 </ul>
@@ -557,36 +557,35 @@
 </main>
 
 <script>
-
-    document.getElementById("customer");
+    document.getElementById("customer").style.display="block";
     document.getElementById("store").style.display="none";
     document.getElementById("order").style.display="none";
     document.getElementById("placeOrder").style.display="none";
-    document.getElementById("Mcustomer").style.display="none";
 
-    document.getElementById("customer").addEventListener("click", function() {
+
+    document.getElementById("Mcustomer").addEventListener("click", function() {
         document.getElementById("customer").style.display = "block";
-        document.getElementById("item").style.display="none";
+        document.getElementById("store").style.display="none";
         document.getElementById("order").style.display = "none";
         document.getElementById("placeOrder").style.display = "none";
     });
 
     document.getElementById("MStore").addEventListener("click", function(){
         document.getElementById("customer").style.display="none";
-        document.getElementById("item").style.display="block";
+        document.getElementById("store").style.display="block";
         document.getElementById("order").style.display="none";
         document.getElementById("placeOrder").style.display="none";
     });
     document.getElementById("MOrder").addEventListener("click", function(){
         document.getElementById("customer").style.display="none";
-        document.getElementById("item").style.display="none";
+        document.getElementById("store").style.display="none";
         document.getElementById("order").style.display="block";
         document.getElementById("placeOrder").style.display="none";
 
     });
     document.getElementById("MPlaceOrder").addEventListener("click", function(){
-        document.getElementById("customers").style.display="none";
-        document.getElementById("item").style.display="none";
+        document.getElementById("customer").style.display="none";
+        document.getElementById("store").style.display="none";
         document.getElementById("order").style.display="none";
         document.getElementById("placeOrder").style.display="block";
     });
@@ -642,6 +641,7 @@
         //Work done;
     });
 </script>-->
+
 <script>
     let customerArray=[];
     $("#btnCustomer").click(function (){
@@ -695,9 +695,10 @@
         tBody.append(tr);
 
         //Work done;
+        //done
     });
-</script>
 
+</script>
 
 </body>
 </html>

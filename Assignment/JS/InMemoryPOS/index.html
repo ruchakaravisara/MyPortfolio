@@ -562,27 +562,33 @@
     document.getElementById("store").style.display="none";
     document.getElementById("order").style.display="none";
     document.getElementById("placeOrder").style.display="none";
-    document.getElementById("Mcustomer").addEventListener("click", function(){
+    document.getElementById("Mcustomer").style.display="none";
 
-        document.getElementById("customer").style.display="block";
-        // document.getElementById("item").style.display="none";
-        document.getElementById("order").style.display="none";
-        document.getElementById("placeOrder").style.display="none";
+    document.getElementById("customer").addEventListener("click", function() {
+        document.getElementById("customer").style.display = "block";
+        document.getElementById("item").style.display="none";
+        document.getElementById("order").style.display = "none";
+        document.getElementById("placeOrder").style.display = "none";
     });
+
     document.getElementById("MStore").addEventListener("click", function(){
         document.getElementById("customer").style.display="none";
+        document.getElementById("item").style.display="block";
         document.getElementById("order").style.display="none";
         document.getElementById("placeOrder").style.display="none";
     });
     document.getElementById("MOrder").addEventListener("click", function(){
         document.getElementById("customer").style.display="none";
         document.getElementById("item").style.display="none";
+        document.getElementById("order").style.display="block";
         document.getElementById("placeOrder").style.display="none";
+
     });
     document.getElementById("MPlaceOrder").addEventListener("click", function(){
         document.getElementById("customers").style.display="none";
         document.getElementById("item").style.display="none";
         document.getElementById("order").style.display="none";
+        document.getElementById("placeOrder").style.display="block";
     });
 
 </script>
@@ -637,22 +643,24 @@
     });
 </script>-->
 <script>
+    let customerArray=[];
     $("#btnCustomer").click(function (){
 
 
         //get typed values of input fields
-        let id = $("#inputid").val();
-        let name = $("#inputName").val();
-        let address = $("#inputAddress").val();
-        let salary = $("#inputSalary").val();
+        let cusid = $("#inputid").val();
+        let cusname = $("#inputName").val();
+        let cusaddress = $("#inputAddress").val();
+        let cussalary = $("#inputSalary").val();
 
         //let's print it
-        console.log(id,name,address,salary);
+      /*  console.log(id,name,address,salary);*/
 
         //catch the table body
        let tBody= $("#tblCustomer");
-       let tr = $('<tr> <td>'+id+'</td> <td>'+name+'</td> <td>'+address+'</td> <td>'+salary+'</td> </tr>');
+       let tr = $('<tr> <td>'+cusid+'</td> <td>'+cusname+'</td> <td>'+cusaddress+'</td> <td>'+cussalary+'</td> </tr>');
 
+       customerArray.push({id:cusid,name:cusname,address:cusaddress,salary:cussalary});
 
         // let's see how we should insert a table row using html format
         //<tr>

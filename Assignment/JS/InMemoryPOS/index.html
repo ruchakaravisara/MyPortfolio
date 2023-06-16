@@ -88,7 +88,7 @@
 
                     <div class="col-6 ms-5">
                         <button type="button" class="btn btn-success mt-2 mb-3 ms-4" id="btnCustomer" >Save</button>
-                        <button type="button" class="btn btn-info me-1 mt-2 mb-3 ms-4">Update</button>
+                        <button type="button" class="btn btn-info me-1 mt-2 mb-3 ms-4" id="btnUpdateCustomer">Update</button>
 
                     </div>
 
@@ -140,7 +140,7 @@
                     </tbody>
                 </table>
                 <div class="col-6 ms-5">
-                    <button type="button" class="btn btn-danger mt-2 mb-3 ms-4" >Delete</button>
+                    <button type="button" class="btn btn-danger mt-2 mb-3 ms-4"  id="btnCustomerDelete">Delete</button>
                     <button type="button" class="btn btn-warning me-1 mt-2 mb-3 ms-4">Edit</button>
 
                 </div>
@@ -187,8 +187,8 @@
 
 
                     <div class="col-6 ms-5">
-                        <button type="button" class="btn btn-success mt-2 mb-3 ms-4" >Save</button>
-                        <button type="button" class="btn btn-info me-1 mt-2 mb-3 ms-4">Update</button>
+                        <button type="button" class="btn btn-success mt-2 mb-3 ms-4" id="btnItem" >Save</button>
+                        <button type="button" class="btn btn-info me-1 mt-2 mb-3 ms-4" id="btnUpdateItem">Update</button>
 
                     </div>
 
@@ -199,48 +199,48 @@
                 <table class="table table-bordered border-primary">
                     <thead >
                     <tr>
-                        <th scope="col" style="background-color: #ffc107">#</th>
+
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">Quantity</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tblItem">
                     <tr>
-                        <th scope="row">1</th>
+                       <!-- <th scope="row">1</th>
                         <td>I001</td>
                         <td>suger</td>
                         <td>250</td>
-                        <td>1kg</td>
+                        <td>1kg</td>-->
                     </tr>
                     <tr>
-                        <th scope="row">1</th>
+                       <!-- <th scope="row">1</th>
                         <td>I001</td>
                         <td>suger</td>
                         <td>250</td>
-                        <td>1kg</td>
+                        <td>1kg</td>-->
                     </tr>
 
                     <tr>
-                        <th scope="row">1</th>
+                       <!-- <th scope="row">1</th>
                         <td>I001</td>
                         <td>suger</td>
                         <td>250</td>
-                        <td>1kg</td>
+                        <td>1kg</td>-->
                     </tr>
                     <tr>
-                        <th scope="row">1</th>
+                        <!--<th scope="row">1</th>
                         <td>I001</td>
                         <td>suger</td>
                         <td>250</td>
-                        <td>1kg</td>
+                        <td>1kg</td>-->
                     </tr>
 
                     </tbody>
                 </table>
                 <div class="col-6 ms-5">
-                    <button type="button" class="btn btn-danger mt-2 mb-3 ms-4" >Delete</button>
+                    <button type="button" class="btn btn-danger mt-2 mb-3 ms-4" id="btnItemDelete" >Delete</button>
                     <button type="button" class="btn btn-warning me-1 mt-2 mb-3 ms-4">Edit</button>
 
                 </div>
@@ -653,14 +653,28 @@
         let cusaddress = $("#inputAddress").val();
         let cussalary = $("#inputSalary").val();
 
+
+        let CustomerObject={
+            id :cusid ,
+            name :cusname,
+            address:cusaddress,
+            salary: cussalary
+        }
         //let's print it
       /*  console.log(id,name,address,salary);*/
 
         //catch the table body
        let tBody= $("#tblCustomer");
-       let tr = $('<tr> <td>'+cusid+'</td> <td>'+cusname+'</td> <td>'+cusaddress+'</td> <td>'+cussalary+'</td> </tr>');
+    /*   let tr = $('<tr> <td>'+cusid+'</td> <td>'+cusname+'</td> <td>'+cusaddress+'</td> <td>'+cussalary+'</td> </tr>');*/
 
-       customerArray.push({id:cusid,name:cusname,address:cusaddress,salary:cussalary});
+      /* customerArray.push(CustomerObject);*/
+        if (!checkExistCustomer(CustomerObject.id)) {
+            customerArray.push(CustomerObject);
+        } else {
+            alert("Same ID !");
+        }
+
+       getAllCustomers();
 
         // let's see how we should insert a table row using html format
         //<tr>
@@ -697,6 +711,245 @@
         //Work done;
         //done
     });
+
+    //get data from raw
+  $("#tblCustomer").on('click','tr',function (){
+      let cusid =$(this).find('td:eq(0)').text();
+      let cusname =$(this).find('td:eq(1)').text();
+      let  cusaddress =$(this).find('td:eq(2)').text();
+      let cussalary =$(this).find('td:eq(3)').text();
+
+      //set values to textfield
+      $("#inputid").val(cusid);
+      $("#inputName").val(cusname);
+      $("#inputAddress").val(cusaddress);
+      $("#inputSalary").val(cussalary);
+
+  });
+
+$("#btnCustomerDelete").click(function (){
+    let selectedID =$("#inputid").val();
+    for(let i =0;i<customerArray.length;i++){
+        if (selectedID===customerArray[i].id){
+            customerArray.splice(i,1);
+            break;
+
+        }
+    }
+    getAllCustomers();
+    clearAll();
+})
+
+    /*update*/
+    $('#btnUpdateCustomer').click(function () {
+        // Get data
+
+        let cusid = $("#inputid").val();
+        let cusname = $("#inputName").val();
+        let cusaddress = $("#inputAddress").val();
+        let cussalary = $("#inputSalary").val();
+
+        // Set new data to existing object (using id)
+        for (let i = 0; i < customerArray.length; i++) {
+            if (cusid === customerArray[i].id) {
+                // Confirm update
+                let confirmUpdate = confirm("Do you want to update?");
+
+                if (confirmUpdate) {
+                    // Update the object in the array
+                    customerArray[i].name = cusname;
+                    customerArray[i].address = cusaddress;
+                    customerArray[i].salary =cussalary;
+
+                    // Exit the loop
+                    break;
+                }
+            }
+        }
+
+        // Update table
+        getAllCustomers();
+    });
+
+    // check customer is exists
+    function checkExistCustomer(id) {
+        for (let i = 0; i < customerArray.length; i++) {
+            if (id === customerArray[i].id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //tab
+$("#inputid,#inputName,#inputAddress,#inputSalary").keydown(function (e){
+    if (e.key==="Tab"){
+        e.preventDefault();
+    }
+    });
+
+    //enter key
+    $("#inputid").keydown(function (e){
+        if(e.key=="Enter"){
+            $('#inputName').focus();
+        }
+    });
+
+    $("#inputName").keydown(function (e){
+        if(e.key=="Enter"){
+            $('#inputAddress').focus();
+        }
+    });
+    $("#inputAddress").keydown(function (e){
+        if(e.key=="Enter"){
+            $('#inputSalary').focus();
+        }
+    });
+
+
+
+
+    function getAllCustomers() {
+        let tBody = $("#tblCustomer");
+
+        // Clear table
+        tBody.empty();
+
+        // Load all values
+        for (let i = 0; i < customerArray.length; i++) {
+            let tr = $(`<tr>
+                        <td>${customerArray[i].id}</td>
+                        <td>${customerArray[i].name}</td>
+                        <td>${customerArray[i].address}</td>
+                        <td>${customerArray[i].salary}</td>
+                   </tr>`);
+            tBody.append(tr);
+        }
+    }
+    function clearAll(){
+        $("#inputid").val("");
+        $("#inputName").val("");
+        $("#inputAddress").val("");
+        $("#inputSalary").val("");
+    }
+</script>
+
+<script>
+    let itemArray=[];
+
+
+    $("#btnItem").click(function (){
+
+
+        //get typed values of input fields
+        let itemsid = $("#inputItemid").val();
+        let itemname = $("#inputItemName").val();
+        let itemprice = $("#inputItemPrice").val();
+        let itemquantity = $("#inputItemQuantity").val();
+
+
+        let ItemObject={
+            issid :itemsid,
+            iname :itemname ,
+            iprice:itemprice,
+            iquantity: itemquantity
+        }
+
+        let tBody= $("#tblItem");
+       /* let tr = $('<tr> <td>'+itemsid+'</td> <td>'+itemname+'</td> <td>'+itemprice+'</td> <td>'+itemquantity+'</td> </tr>');
+
+        itemArray.push({isid:itemsid,iname:itemname,iprice:itemprice,iquantity:itemquantity });*/
+     itemArray.push(ItemObject);
+
+      getAllItem();
+
+        tBody.append(tr);
+
+    });
+
+    $("#tblItem").on('click','tr',function (){
+        let itemsid  =$(this).find('td:eq(0)').text();
+        let itemname =$(this).find('td:eq(1)').text();
+        let  itemprice =$(this).find('td:eq(2)').text();
+        let itemquantity =$(this).find('td:eq(3)').text();
+
+        //set values to textfield
+        $("#inputItemid").val(itemsid );
+        $("#inputItemName").val(itemname);
+        $("#inputItemPrice").val(itemprice);
+        $("#inputItemQuantity").val(itemquantity);
+
+    });
+
+    $("#btnItemDelete").click(function (){
+        let selectedID =$("#inputItemid").val();
+        for(let i =0;i<itemArray.length;i++){
+            if (selectedID===itemArray[i].issid){
+                itemArray.splice(i,1);
+                break;
+
+            }
+        }
+        getAllItem();
+        clearAll();
+    })
+
+    /*update*/
+    $('#btnUpdateItem').click(function () {
+        // Get data
+
+        let itemsid = $("#inputItemid").val();
+        let itemname = $("#inputItemName").val();
+        let itemprice = $("#inputItemPrice").val();
+        let itemquantity = $("#inputItemQuantity").val();
+
+        // Set new data to existing object (using id)
+        for (let i = 0; i < itemArray.length; i++) {
+            if (itemsid === itemArray[i].issid) {
+                // Confirm update
+                let confirmUpdate = confirm("Do you want to update?");
+
+                if (confirmUpdate) {
+                    // Update the object in the array
+                    customerArray[i].iname = itemname;
+                    customerArray[i].iprice = itemprice;
+                    customerArray[i].iquantity =itemquantity;
+
+                    // Exit the loop
+                    break;
+                }
+            }
+        }
+
+        // Update table
+        getAllItem();
+    });
+
+
+
+    function getAllItem() {
+        let tBody = $("#tblItem");
+
+        // Clear table
+        tBody.empty();
+
+        // Load all values
+        for (let i = 0; i < itemArray.length; i++) {
+            let tr = $(`<tr>
+                        <td>${itemArray[i].issid}</td>
+                        <td>${itemArray[i].iname}</td>
+                        <td>${itemArray[i].iprice}</td>
+                        <td>${itemArray[i].iquantity}</td>
+                   </tr>`);
+            tBody.append(tr);
+        }
+    }
+    function clearAll(){
+        $("#inputItemid").val("");
+        $("#inputItemName").val("");
+        $("#inputItemPrice").val("");
+        $("#inputItemQuantity").val("");
+    }
 
 </script>
 

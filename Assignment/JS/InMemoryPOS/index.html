@@ -772,9 +772,9 @@ $("#btnCustomerDelete").click(function (){
     });
 
     // check customer is exists
-    function checkExistCustomer(id) {
+    function checkExistCustomer(cusid) {
         for (let i = 0; i < customerArray.length; i++) {
-            if (id === customerArray[i].id) {
+            if (cusid === customerArray[i].id) {
                 return true;
             }
         }
@@ -859,7 +859,13 @@ $("#inputid,#inputName,#inputAddress,#inputSalary").keydown(function (e){
        /* let tr = $('<tr> <td>'+itemsid+'</td> <td>'+itemname+'</td> <td>'+itemprice+'</td> <td>'+itemquantity+'</td> </tr>');
 
         itemArray.push({isid:itemsid,iname:itemname,iprice:itemprice,iquantity:itemquantity });*/
-     itemArray.push(ItemObject);
+    // itemArray.push(ItemObject);
+
+        if (!checkExistItem(ItemObject.issid)) {
+            itemArray.push(ItemObject);
+        } else {
+            alert("Same ID !");
+        }
 
       getAllItem();
 
@@ -911,9 +917,9 @@ $("#inputid,#inputName,#inputAddress,#inputSalary").keydown(function (e){
 
                 if (confirmUpdate) {
                     // Update the object in the array
-                    customerArray[i].iname = itemname;
-                    customerArray[i].iprice = itemprice;
-                    customerArray[i].iquantity =itemquantity;
+                    itemArray[i].iname = itemname;
+                    itemArray[i].iprice = itemprice;
+                    itemArray[i].iquantity =itemquantity;
 
                     // Exit the loop
                     break;
@@ -925,7 +931,39 @@ $("#inputid,#inputName,#inputAddress,#inputSalary").keydown(function (e){
         getAllItem();
     });
 
+    function checkExistItem(itemsid) {
+        for (let i = 0; i < itemArray.length; i++) {
+            if (itemsid === itemArray[i].issid) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    //tab
+    $("#inputItemid,#inputItemName,#inputItemPrice,#inputItemQuantity").keydown(function (e){
+        if (e.key==="Tab"){
+            e.preventDefault();
+        }
+    });
+
+    //enter key
+    $("#inputItemid").keydown(function (e){
+        if(e.key=="Enter"){
+            $('#inputItemName').focus();
+        }
+    });
+
+    $("#inputItemName").keydown(function (e){
+        if(e.key=="Enter"){
+            $('#inputItemPrice').focus();
+        }
+    });
+    $("#inputItemPrice").keydown(function (e){
+        if(e.key=="Enter"){
+            $('#inputItemQuantity').focus();
+        }
+    });
 
     function getAllItem() {
         let tBody = $("#tblItem");

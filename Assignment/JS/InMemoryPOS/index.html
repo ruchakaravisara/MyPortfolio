@@ -64,24 +64,28 @@
                         <label for="inputid" class="col-sm-2 col-form-label">CID</label>
                         <div class="col-sm-10">
                             <input type="id" class="form-control" id="inputid">
+                            <!--<small id="invalidIdMessage" class="text-danger">Invalid ID</small>-->
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
                             <input type="name" class="form-control" id="inputName">
+                            <!--<small id="invalidNameMessage" class="text-danger">Invalid Name</small>-->
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputAddress" class="col-sm-2 col-form-label">contact</label>
+                        <label for="inputAddress" class="col-sm-2 col-form-label">address</label>
                         <div class="col-sm-10">
-                            <input type="contact" class="form-control" id="inputAddress">
+                            <input type="address" class="form-control" id="inputAddress">
+                           <!-- <small id="invalidAddressMessage" class="text-danger">Invalid Address</small>-->
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputSalary" class="col-sm-2 col-form-label">address</label>
+                        <label for="inputSalary" class="col-sm-2 col-form-label">contact</label>
                         <div class="col-sm-10">
-                            <input type="address" class="form-control" id="inputSalary">
+                            <input type="contact" class="form-control" id="inputSalary">
+                            <!--<small id="invalidSalaryMessage" class="text-danger">Invalid Salary</small>-->
                         </div>
                     </div>
 
@@ -102,8 +106,8 @@
                      <!--   <th scope="col" style="background-color: #ffc107">#</th>-->
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Contact</th>
                         <th scope="col">Address</th>
+                        <th scope="col">Contact</th>
                     </tr>
                     </thead>
                     <tbody id="tblCustomer">
@@ -141,7 +145,7 @@
                 </table>
                 <div class="col-6 ms-5">
                     <button type="button" class="btn btn-danger mt-2 mb-3 ms-4"  id="btnCustomerDelete">Delete</button>
-                    <button type="button" class="btn btn-warning me-1 mt-2 mb-3 ms-4">Edit</button>
+                    <button type="button" class="btn btn-warning me-1 mt-2 mb-3 ms-4" id="btnCancleCustomer">cancle</button>
 
                 </div>
             </div>
@@ -164,24 +168,28 @@
                         <label for="inputItemid" class="col-sm-2 col-form-label">SID</label>
                         <div class="col-sm-10">
                             <input type="id" class="form-control" id="inputItemid">
+                            <!--<small id="invalidCodeMessage" class="text-danger">Invalid Code</small>-->
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputItemName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
                             <input type="name" class="form-control" id="inputItemName">
+                           <!-- <small id="invalidItemNameMessage" class="text-danger">Invalid Item Name</small>-->
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputItemPrice" class="col-sm-2 col-form-label">Price</label>
                         <div class="col-sm-10">
                             <input type="price" class="form-control" id="inputItemPrice">
+                           <!-- <small id="invalidItemPriceMessage" class="text-danger">Invalid Price</small>-->
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="inputItemQuantity" class="col-sm-2 col-form-label">Quantity</label>
                         <div class="col-sm-10">
                             <input type="quantity" class="form-control" id="inputItemQuantity">
+                            <!--<small id="invalidItemQTYMessage" class="text-danger">Invalid Qty</small>-->
                         </div>
                     </div>
 
@@ -241,7 +249,7 @@
                 </table>
                 <div class="col-6 ms-5">
                     <button type="button" class="btn btn-danger mt-2 mb-3 ms-4" id="btnItemDelete" >Delete</button>
-                    <button type="button" class="btn btn-warning me-1 mt-2 mb-3 ms-4">Edit</button>
+                    <button type="button" class="btn btn-warning me-1 mt-2 mb-3 ms-4" id="btnItemCancle">cancle</button>
 
                 </div>
             </div>
@@ -269,6 +277,12 @@
                         </div>
                     </div>
                     <div class="row mb-3">
+                        <label for="inputdate" class="col-sm-2 col-form-label">date</label>
+                        <div class="col-sm-10">
+                            <input type="datee" class="form-control" id="inputdatee">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
                         <label for="inputtid" class="col-sm-2 col-form-label">Customer ID</label>
                         <div class="col-sm-10">
                             <input type="id" class="form-control" id="inputtid">
@@ -281,17 +295,17 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputQuantity" class="col-sm-2 col-form-label">quantity</label>
+                        <label for="inputDiscount" class="col-sm-2 col-form-label">Discount</label>
                         <div class="col-sm-10">
-                            <input type="quantity" class="form-control" id="inputQuantity">
+                            <input type="Discount" class="form-control" id="inputDiscount">
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <!--<div class="row mb-3">
                         <label for="inputdate" class="col-sm-2 col-form-label">date</label>
                         <div class="col-sm-10">
                             <input type="date" class="form-control" id="inputdate">
                         </div>
-                    </div>
+                    </div>-->
                     <div class="row mb-3">
                         <label for="total" class="col-sm-2 col-form-label">total</label>
                         <div class="col-sm-10">
@@ -313,85 +327,85 @@
                 <table class="table table-bordered border-primary">
                     <thead >
                     <tr>
-                        <th scope="col" style="background-color: #ffc107">#</th>
+
                         <th scope="col">OId</th>
+                        <th scope="col">Date</th>
                         <th scope="col">CID</th>
                         <th scope="col">IID</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Discount</th>
                         <th scope="col">Total</th>
 
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>O001</td>
+
+                        <!--<td>O001</td>
                         <td>C001</td>
                         <td>I001</td>
                         <td>1</td>
                         <td>2023/12/12</td>
-                        <td>500</td>
+                        <td>500</td>-->
 
                     </tr>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>O001</td>
+
+                        <!--<td>O001</td>
                         <td>C001</td>
                         <td>I001</td>
                         <td>1</td>
                         <td>2023/12/12</td>
                         <td>500</td>
+-->
+                    </tr>
+                    <tr>
+
+                        <!--<td>O001</td>
+                        <td>C001</td>
+                        <td>I001</td>
+                        <td>1</td>
+                        <td>2023/12/12</td>
+                        <td>500</td>-->
 
                     </tr>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>O001</td>
+
+                      <!--  <td>O001</td>
                         <td>C001</td>
                         <td>I001</td>
                         <td>1</td>
                         <td>2023/12/12</td>
                         <td>500</td>
+-->
+                    </tr>
+                    <tr>
+
+                      <!--  <td>O001</td>
+                        <td>C001</td>
+                        <td>I001</td>
+                        <td>1</td>
+                        <td>2023/12/12</td>
+                        <td>500</td>-->
 
                     </tr>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>O001</td>
+
+                        <!--<td>O001</td>
                         <td>C001</td>
                         <td>I001</td>
                         <td>1</td>
                         <td>2023/12/12</td>
-                        <td>500</td>
+                        <td>500</td>-->
 
                     </tr>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>O001</td>
-                        <td>C001</td>
-                        <td>I001</td>
-                        <td>1</td>
-                        <td>2023/12/12</td>
-                        <td>500</td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>O001</td>
+                       <!-- <td>O001</td>
                         <td>C001</td>
                         <td>I001</td>
                         <td>1</td>
                         <td>2023/12/12</td>
-                        <td>500</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>O001</td>
-                        <td>C001</td>
-                        <td>I001</td>
-                        <td>1</td>
-                        <td>2023/12/12</td>
-                        <td>500</td>
+                        <td>500</td>-->
 
                     </tr>
 
@@ -407,7 +421,7 @@
     </section>
 </main>
 
-<main class="container" id="placeOrder">
+<!--<main class="container" id="placeOrder">
     <h2 style="background-color: #dfc2c4" >PlaceOrder</h2>
 
     <div class="row mt-3 border border-dark rounded p-3">
@@ -554,6 +568,161 @@
             </div>
         </div>
     </section>
+</main>-->
+
+<!--'''''''''''-->
+<main id="placeOrder" class="container-fluid">
+    <section class="justify-content-center">
+
+
+        <div class="col border-black p-4 m-3 border rounded" style="background-color: white">
+            <h5 class=" text-secondary-800 text-center m-lg-3 pt-2" >Place Order</h5>
+
+            <div class="row ">
+
+                <form class=" me-3">
+                    <div class="row border-bottom border-black">
+                        <div class="mb-1 col">
+                            <label for="InputOID" class="form-label text-black">Order ID</label>
+                            <input type="text"
+                                   class="form-control text-black  focus-ring-warning"
+                                   id="InputOID" >
+                        </div>
+                        <div class="mb-1 col mb-4">
+                            <label for="InputDate" class="form-label text-black">Date</label>
+                            <input type="date"
+                                   class="form-control  text-black focus-ring-warning focus-ring"
+                                   id="InputDate">
+                        </div>
+                    </div>
+
+                    <h6 class="justify-content-center" style="background-color: #6f42c1">Customer Details</h6>
+                    <div class="row border-bottom border-black">
+                        <div class="mb-1 col">
+                            <label for="custListId" class="form-label text-black">Cust ID</label>
+                            <select class="form-select  text-black focus-ring-warning focus-ring"
+                                    aria-label="Default select example" id="custListId">
+
+
+                            </select>
+                        </div>
+                        <div class="mb-1 col mb-4">
+                            <label for="cusNamePO" class="form-label text-black">Name</label>
+                            <input type="text" id="cusNamePO"
+                                   class="form-control text-black focus-ring-warning focus-ring ">
+                        </div>
+                    </div>
+
+                    <h6 class="justify-content-center" style="background-color: #20c997">Item Details</h6>
+
+                    <div class="row">
+                        <div class="mb-1 col">
+                            <label for="itemIdList" class="form-label text-black">Code</label>
+                            <select class="form-select text-black focus-ring-warning focus-ring"
+                                    aria-label="Default select example" id="itemIdList">
+                                <!--              <option selected>Open this select menu</option>-->
+
+                            </select>
+                        </div>
+                        <div class="mb-1 col mb-4">
+                            <label for="itemDesPO" class="form-label text-black">Description</label>
+                            <input type="text"
+                                   class="form-control text-black focus-ring-warning focus-ring "
+                                   id="itemDesPO" >
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-1 ">
+                            <label for="itemPricePO" class="form-label text-black">Unit Price</label>
+                            <input type="text"
+                                   class="form-control text-black focus-ring-warning focus-ring "
+                                   id="itemPricePO" >
+                        </div>
+                        <div class="mb-1 col">
+                            <label for="itemQtyHandPO" class="form-label text-black">Qty On Hnd</label>
+                            <input type="text"
+                                   class="form-control text-black focus-ring-warning focus-ring "
+                                   id="itemQtyHandPO" >
+                        </div>
+
+                        <div class="mb-1 col">
+                            <label for="Qty" class="form-label text-black">Qty</label>
+                            <input type="text"
+                                   class="form-control text-black focus-ring-warning focus-ring "
+                                   id="Qty">
+                        </div>
+
+                    </div>
+
+
+
+                </form>
+            </div>
+
+            <div class="row m-0 gap-2 mt-5">
+                <button  id=addToCard type="button" class="bg-info">Add to Card</button>
+                <button id=btnOrderClear type="button" class="btn btn-outline-danger">Clear</button>
+            </div>
+        </div>
+
+        <div class="col m-3 ">
+            <div class=" rounded ">
+                <h5 class="text-black-200 mt-4 mb-3 ms-2">table</h5>
+                <table class="table table-light table-striped">
+                    <thead>
+                    <tr>
+                        <th  class="text-white" style="background-color: black" scope="col">Id</th>
+                        <th class="text-white" style="background-color: black" scope="col">Description</th>
+                        <th class="text-white" style="background-color: black" scope="col">Unit price</th>
+                        <th class="text-white" style="background-color: black" scope="col">Qty</th>
+                        <th class="text-white" style="background-color: black" scope="col">Total</th>
+                        <!-- <th style="background-color: #da9aef" scope="col">Action</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="OrderTbl">
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="row mt-5 p-4 border border-black rounded" style="background-color: #5c636a">
+                <h5 class="text-bg-dark  mt-3 mb-2">Purchase Order</h5>
+                <div class="row">
+                    <!--                    <div class="mb-1 col">-->
+                    <!--                        <button class="btn btn-outline-warning mt-5 mb-5" type="submit">Cancel</button>-->
+                    <!--                    </div>-->
+
+                    <div class="mb-5 col text-black">
+                        <label for="totalPlaceOrder" class="form-label "> Total</label>
+                        <input type="number"
+                               class="form-control bg-white border-warning text-black focus-ring-warning focus-ring mb-4 rounded"
+                               id="totalPlaceOrder" readonly>
+                    </div>
+                </div>
+
+
+
+                <div class="mb-1 col">
+                    <label for="discountPlaceOrder" class="form-label text-white">Discount</label>
+                    <input type="number"
+                           class="form-control bg-white border-white text-black focus-ring-warning focus-ring "
+                           id="discountPlaceOrder">
+                </div>
+
+                <div class="mb-1 col">
+                    <label for="subTotalPlaceOrder" class="form-label text-white">Sub Total</label>
+                    <input type="number"
+                           class="form-control bg-white border-white text-black focus-ring-warning focus-ring "
+                           id="subTotalPlaceOrder" readonly>
+                </div>
+
+            </div>
+            <div class="row ms-1">
+                <button class="btn btn-outline-success mt-5 mb-5" id="btnPurchaseFinalOrder" type="submit" style="background-color: #664d03">Purchase</button>
+            </div>
+        </div>
+    </section>
 </main>
 
 <script>
@@ -642,7 +811,7 @@
     });
 </script>-->
 
-<script>
+<!--<script>
     let customerArray=[];
     $("#btnCustomer").click(function (){
 
@@ -806,8 +975,57 @@ $("#inputid,#inputName,#inputAddress,#inputSalary").keydown(function (e){
         }
     });
 
+    //validation for customer
+    const CusIdRegex = /^(C00-)[0-9]{3}$/;
+    const CusNameRegex = /^[A-Za-z ]{5,}$/;
+    const CusAddressRegex = /^[A-Za-z0-9 ]{5,}$/;
+    const CusContactRegex = /^[0-9]{10,}$/;
+
+    //add validations set text fields
+    let cusValidateArray = new Array();
+    cusValidateArray.push({field: $("#inputid"), regEx: CusIdRegex});
+    cusValidateArray.push({field: $("#inputName"), regEx: CusNameRegex});
+    cusValidateArray.push({field: $("#inputAddress"), regEx: CusAddressRegex});
+    cusValidateArray.push({field: $("#inputSalary"), regEx: CusContactRegex});
+
+    function checkValidations(object) {
+        if (object.regEx.test(object.field.val())) {
+            setBorder(true, object)
+            return true;
+        }
+        setBorder(false, object)
+        return false;
+    }
 
 
+    function setBorder(bol, ob) {
+        if (!bol) {
+            if (ob.field.val().length >= 1) {
+                ob.field.css("border", "2px solid red");
+            } else {
+                ob.field.css("border", "1px solid #ced4da");
+            }
+        } else {
+            if (ob.field.val().length >= 1) {
+                ob.field.css("border", "2px solid green");
+            } else {
+                ob.field.css("border", "1px solid #ced4da");
+            }
+        }
+
+    }
+
+
+    function checkAll() {
+        for (let i = 0; i < cusValidateArray.length; i++) {
+            if (!checkValidations(cusValidateArray[i])) return false;
+        }
+        return true;
+    }
+
+
+
+   /*....................................*/
 
     function getAllCustomers() {
         let tBody = $("#tblCustomer");
@@ -832,6 +1050,8 @@ $("#inputid,#inputName,#inputAddress,#inputSalary").keydown(function (e){
         $("#inputAddress").val("");
         $("#inputSalary").val("");
     }
+
+
 </script>
 
 <script>
@@ -989,7 +1209,27 @@ $("#inputid,#inputName,#inputAddress,#inputSalary").keydown(function (e){
         $("#inputItemQuantity").val("");
     }
 
-</script>
+</script>-->
+<script src="controller/AllOrders.js"></script>
+<script src="controller/item.js"></script>
+<script src="controller/customer.js"></script>
+<!--<script src="controller/order.js"></script>
+
+
+<script src="controller/navigation.js"></script>
+
+<script src="controller/validations/commonFunction.js"></script>
+<script src="controller/validations/CustomerValidation.js"></script>
+<script src="controller/validations/ItemValidation.js"></script>
+<script src="controller/validations/OrdersValidation.js"></script>
+
+<script src="db/DB.js"></script>
+
+<script src="model/item.js"></script>
+<script src="model/OrderDetails.js"></script>
+<script src="model/Orders.js"></script>
+<script src="model/Customer.js"></script>-->
+
 
 </body>
 </html>
